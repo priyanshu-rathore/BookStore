@@ -1,7 +1,7 @@
 .landing-page-main{
     display: flex;
     height: 100vh;
-    width: 100vw;
+    width: 100%;
     justify-content: flex-end;
     align-items: center;
     background-color: grey;
@@ -16,7 +16,7 @@
 .landing-page-right{
     flex: .5;
     position: relative;
-    right: 2rem;
+    right: 3rem;
 }
 
 .landing-page-left-box{
@@ -30,7 +30,7 @@
     margin-left: 39rem;
     background-color: white;
     position: relative;
-    right: 2rem;
+    right: 3rem;
 }
 
 .landing-page-left-box-image img{

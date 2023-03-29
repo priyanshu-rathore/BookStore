@@ -23,6 +23,10 @@ const SignIn = ({setDisplay}) => {
       event.preventDefault();
     };
 
+    React.useEffect(()=>{
+
+    },[])
+
     const submit = async() => {
       let email = emailRegex.test(signIn.email)
       let password = passwordRegex.test(signIn.password)
@@ -42,6 +46,9 @@ const SignIn = ({setDisplay}) => {
       if(email && password){
         let response = await signInService(signIn)
         console.log(response)
+        if(response.status !== 200){
+          alert("Wrong Email Or Password")
+        }
       }
 
     }
