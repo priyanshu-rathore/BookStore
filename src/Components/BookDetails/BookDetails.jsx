@@ -1,13 +1,56 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import "./BookDetails.css"
 import bookImg from '../../Assets/Image 36.png'
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import StarIcon from '@mui/icons-material/Star';
 import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
+import AddToCartCounter from '../AddToCartCounter/AddToCartCounter';
+import { addCartItemService, getCartItemService } from '../../Services/CartService';
 
 
 const BookDetails = ({book,click}) => {
+    const [addToBag,setAddToBag] = useState(true)
+    const [numOfItem,setNumOfItem] = useState()
+    const [cartId,setCartId] = useState()
+    const [bookObj,setBookObj] = useState({})
+
+    const addToCart = async(bookId) => {
+        let response = await addCartItemService(bookId)
+        console.log(response)
+      await  getCartItem()
+        return response
+    }
+
+    const getCartItem = async() => {
+        let response = await getCartItemService()
+        console.log(response)
+        
+
+        for(let i = 0;i <= response.data.result.length ; i++){
+            if(response.data.result[i]?.product_id._id == book._id){
+                let itemNo = response.data.result[i].quantityToBuy
+                // setNumOfItem(itemNo)
+                // setCartId(response.data.result[i]._id)
+                setBookObj(response.data.result[i])
+                setAddToBag(false)
+
+                // console.log(itemNo)
+                // console.log(numOfItem)
+
+            }
+        }
+       
+        
+        console.log(response)
+        return response
+    }
+
+    useEffect(()=> {
+        getCartItem()
+        
+    },[])
+    // setAddToBag={setAddToBag} cartId={cartId} itemNo={numOfItem} book={book}
   return (
     <div className='book-details'>
         <div className="book-details-top">
@@ -20,7 +63,11 @@ const BookDetails = ({book,click}) => {
                     <img src={bookImg} alt="" />
                 </div>
                 <div className="book-details-left-bottom"> 
-                <button className='add-to-bag'>ADD TO BAG</button>
+                {
+                    addToBag ? 
+                <button onClick={()=>{setAddToBag(false);addToCart(book._id);}} className='add-to-bag'>ADD TO BAG</button> : <AddToCartCounter setAddToBag={setAddToBag} getCartItem={getCartItem} bookObj={bookObj}/>
+
+                }
                 <button className='wish-list'>{<FavoriteIcon fontSize='small' style={{marginRight:'10px'}}/>}WISHLIST</button>
                  </div>
                 </div>

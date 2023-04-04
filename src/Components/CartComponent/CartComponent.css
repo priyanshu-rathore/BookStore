@@ -1,0 +1,16 @@
+.cart-component-top select{
+    width: 6rem;
+}
+
+.cart-component-middle {
+    display: flex;
+    margin-top: 1rem;
+    gap: 4rem;
+}
+
+.cart-component-middle-right-top{
+    display: flex;
+    flex-direction: column;
+    gap: .5rem;
+    margin-top: -1.5rem;
+}

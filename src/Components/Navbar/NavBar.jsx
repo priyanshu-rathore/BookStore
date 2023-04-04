@@ -4,6 +4,7 @@ import logo from '../../Assets/education.svg'
 import SearchIcon from '@mui/icons-material/Search';
 import PersonOutlineOutlinedIcon from '@mui/icons-material/PersonOutlineOutlined';
 import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
+import { Link } from "react-router-dom";
 
 const NavBar = ({searchBooks}) => {
   return (
@@ -11,10 +12,11 @@ const NavBar = ({searchBooks}) => {
       <nav className="navbar-navbar">
         <div className="navbar-navbar-contents">
           <div className="navbar-navbar-left">
-            <div className="navbar-navbar-brand" style={{position:'relative',bottom:'5px'}}>
+        <Link to='/dashboard' style={{textDecoration:'none'}} >    <div className="navbar-navbar-brand" style={{position:'relative',bottom:'5px'}}>
                 <img src={logo} alt="" />
                 <h2 style={{marginLeft:'10px',color:'white'}}>Bookstore</h2>
             </div>
+            </Link>
             <div className="navbar-navbar-search-bar">
                 <SearchIcon style={{color:'grey'}}/>
                 <input type="text" placeholder="Search..." onChange={(e)=>searchBooks(e.target.value)}/>
@@ -25,10 +27,11 @@ const NavBar = ({searchBooks}) => {
                     <PersonOutlineOutlinedIcon style={{color:'white',position:'relative',top:'10px'}}/>
                     <p style={{color:'white',fontSize:'14px'}}>Profile</p>
             </div>
-            <div className="navbar-navbar-right-cart" style={{marginLeft:'2rem'}}>
-                <ShoppingCartOutlinedIcon style={{color:'white',position:'relative',top:'13px'}}/>
+          <Link to='/cart' style={{textDecoration:'none'}}><div className="navbar-navbar-right-cart" style={{marginLeft:'2rem'}}>
+                <ShoppingCartOutlinedIcon style={{color:'white',position:'relative',top:'13px',cursor:'pointer'}}/>
                 <p style={{color:'white',fontSize:'14px'}}>Cart</p>
             </div>
+            </Link>  
           </div>
         </div>
       </nav>
