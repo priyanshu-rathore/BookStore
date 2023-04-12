@@ -7,6 +7,8 @@ import NavBar from "../../Components/Navbar/NavBar";
 import { getBooksService } from "../../Services/UserService";
 import "./DashBoard.css";
 import BookDetails from "../../Components/BookDetails/BookDetails";
+import { Grid } from '@mui/material';
+
 import { display } from "@mui/system";
 
 const DashBoard = () => {
@@ -67,23 +69,23 @@ const DashBoard = () => {
   
 
   return (
-    <div>
+    <Grid>
       <NavBar searchBooks={setSearchQuery} />
-      <div className="dashboard-book-top" style={click ? {display:'none'} : {display:'flex'}} >
+      <Grid className="dashboard-book-top" style={click ? {display:'none'} : {display:'flex'}} >
       <BookTop bookLength={filter ? filteredData.length : books.length} />
 
 
-      </div>
-      <div className="book-box-container">
+      </Grid>
+      <Grid className="book-box-container">
         { click ? <BookDetails book={book} click={setClick}/> : filter
           ? filteredData.map((book) => <BookBox book={book} product={product} click={setClick}/> )
           : slicedBooks.map((book) =>  <BookBox book={book} product={product} click={setClick}/> )}
-      </div>
-      <div className="dashboard-pagination" style={click ? {display:'none'} : {display:'flex'}}>
+      </Grid>
+      <Grid className="dashboard-pagination" style={click ? {display:'none'} : {display:'flex'}}>
         <Pagination count={count} color="secondary" onChange={changePage} />
-      </div>
+      </Grid>
       <Footer className="dashboard-footer" />
-    </div>
+    </Grid>
   );
 };
 
