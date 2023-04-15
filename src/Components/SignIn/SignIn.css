@@ -55,3 +55,12 @@ text-transform: uppercase;
 opacity: 1;
 cursor: pointer;
 }
+
+@media only screen and (max-width:600px) {
+   
+
+    .sign-in-main{
+        width: 100%;
+        padding: 1rem;
+    }
+}

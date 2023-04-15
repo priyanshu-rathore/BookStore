@@ -40,3 +40,13 @@
 .landing-page-left-box h3{
     text-transform: uppercase;
 }
+
+@media only screen and (max-width:600px) {
+    .landing-page-left-box{
+        display: none;
+    }
+
+    .sign-in-main{
+        width: 100%;
+    }
+}

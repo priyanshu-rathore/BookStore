@@ -68,7 +68,7 @@ const SignUp = ({setDisplay}) => {
     //     console.log(signUp)
     // },[signUp])
   return (
-    <Card className='sign-up-main'>
+    <div className='sign-up-main'>
         <div className="sign-up-top" style={{display:'flex',width:'65%',justifyContent:'space-between'}}>
             <div className="sign-up-login" onClick={()=>setDisplay(true)}>
                 <h2>Login</h2>
@@ -114,7 +114,7 @@ const SignUp = ({setDisplay}) => {
         <div className="sign-up-sign-up-button">
         <Button onClick={submit} style={{width:'19rem',backgroundColor:'#A03037',textTransform:'capitalize'}} variant="contained">Signup</Button>
         </div>
-    </Card>
+    </div>
   )
 }
 

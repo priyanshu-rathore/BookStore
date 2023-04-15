@@ -14,18 +14,18 @@ const NavBar = ({searchBooks}) => {
     <>
       <nav className="navbar-navbar">
         <Grid className="navbar-navbar-contents">
-          <Grid className="navbar-navbar-left">
+          <Grid className="navbar-navbar-left" >
         <Link to='/dashboard' style={{textDecoration:'none'}} >    <Grid className="navbar-navbar-brand" style={{position:'relative',bottom:'5px'}}>
                 <img src={logo} alt="" />
                 <h2 style={{marginLeft:'10px',color:'white'}}>Bookstore</h2>
             </Grid>
             </Link>
-            <Grid className="navbar-navbar-search-bar">
+            <Grid className="navbar-navbar-search-bar" sx={{display:{xs:'none',sm:'flex',}}}>
                 <SearchIcon style={{color:'grey'}}/>
                 <input type="text" placeholder="Search..." onChange={(e)=>searchBooks(e.target.value)}/>
             </Grid>
           </Grid>
-          <Grid className="navbar-navbar-right">
+          <Grid className="navbar-navbar-right" sx={{display:{xs:'none',sm:'flex'}}}>
             <Grid className="navbar-navbar-right-profile">
               <ProfilePopper/>
             </Grid>

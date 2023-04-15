@@ -41,3 +41,12 @@
     position: relative;
     top: -.7rem;
 }
+
+@media only screen and (max-width:600px) {
+    
+
+    .sign-up-main{
+        width: 100%;
+        padding: 1rem;
+    }
+}
