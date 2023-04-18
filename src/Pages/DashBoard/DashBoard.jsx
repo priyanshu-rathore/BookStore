@@ -76,7 +76,7 @@ const DashBoard = () => {
 
 
       </Grid>
-      <Grid className="book-box-container">
+      <Grid className="book-box-container" sx={{display:{xs:'flex'},alignItems:{xs:'center'},justifyContent:{xs:'center',lg:'space-between'}}}>
         { click ? <BookDetails book={book} click={setClick}/> : filter
           ? filteredData.map((book) => <BookBox book={book} product={product} click={setClick}/> )
           : slicedBooks.map((book) =>  <BookBox book={book} product={product} click={setClick}/> )}
@@ -84,7 +84,10 @@ const DashBoard = () => {
       <Grid className="dashboard-pagination" style={click ? {display:'none'} : {display:'flex'}}>
         <Pagination count={count} color="secondary" onChange={changePage} />
       </Grid>
+      <Grid sx={{display:'flex',flexDirection:'column',justifyContent:'flex-end'}}>
+
       <Footer className="dashboard-footer" />
+      </Grid>
     </Grid>
   );
 };

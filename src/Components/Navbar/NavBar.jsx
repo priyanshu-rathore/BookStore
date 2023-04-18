@@ -7,6 +7,7 @@ import ShoppingCartOutlinedIcon from '@mui/icons-material/ShoppingCartOutlined';
 import { Link } from "react-router-dom";
 import ProfilePopper from "../ProfilePopper/ProfilePopper";
 import { Grid } from '@mui/material';
+import Hamburger from "../Hamburger/Hamburger";
 
 
 const NavBar = ({searchBooks}) => {
@@ -35,6 +36,11 @@ const NavBar = ({searchBooks}) => {
             </Grid>
             </Link>  
           </Grid>
+          <Grid sx={{gap:'2rem',display:{xs:'flex',sm:'none',md:'none',lg:'none'},alignItems:{xs:'center'},justifyContent:'center',color:'white'}}>
+            <SearchIcon/>
+            <Hamburger/>
+          </Grid>
+
         </Grid>
       </nav>
     </>

@@ -3,6 +3,7 @@ import TextField from "@mui/material/TextField";
 import TextareaAutosize from '@mui/base/TextareaAutosize';
 import { addAddressService } from "../../Services/CartService";
 import { Grid } from "@mui/material";
+import './AddressComponent.css'
 
 const AddressComponent = ({setAddDisplay}) => {
   const [customerDetails, setCustomerDetails] = useState({
@@ -24,7 +25,7 @@ const AddressComponent = ({setAddDisplay}) => {
   }
 
   return (
-    <Grid
+    <Grid className="address-component"
       style={{ border: "1px solid #d3cfcf", marginTop: "2rem", width: "70%" }}
     >
       <Grid className="address-component-top" style={{ padding: ".5rem 1rem" }}>

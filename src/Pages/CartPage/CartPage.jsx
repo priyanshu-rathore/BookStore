@@ -57,17 +57,17 @@ const CartPage = () => {
         </Grid>
         {cartItems.map((cartItem)=>(<CartComponent getOrderCartItem={getOrderCartItem} key={cartItem._id} getCartItem={loadData} setDisplay={setDisplay} cartItem={cartItem}/>))}
         <Grid style={{display:'flex',justifyContent:'flex-end'}}>
-        <button onClick={()=>setDisplay(false)} style={{marginBottom:'2rem',marginRight:'2rem',cursor:'pointer',height:'2rem',padding:'0 1rem',backgroundColor:'#3371B5',border:'none',color:'white',borderRadius:'2px'}}>PLACE ORDER</button>
+        <button className='place-order-button' onClick={()=>setDisplay(false)} style={{marginBottom:'2rem',marginRight:'2rem',cursor:'pointer',height:'2rem',padding:'0 1rem',backgroundColor:'#3371B5',border:'none',color:'white',borderRadius:'2px'}}>PLACE ORDER</button>
         </Grid>
     </Grid>
     {
-      display ? <Grid className="cart-page-address" style={{border:'1px solid #d3cfcf',marginTop:'2rem',width:'70%'}} >
+      display ? <Grid sx={{marginLeft:{xs:'-2.8rem',lg:'.09rem'},width:{xs:'22.4rem !important',lg:'70% !important'}}} className="cart-page-address" style={{border:'1px solid #d3cfcf',marginTop:'2rem',width:'70%'}} >
       <p style={{marginLeft:'2rem'}}>Address Details</p>
     </Grid> : <AddressComponent setAddDisplay={setAddDisplay}/>
     }
     <Grid className="cart-page-bottom" style={{marginBottom:'3rem'}}>
     {
-      addDisplay ? <Grid className="cart-page-order-summary" style={{border:'1px solid #d3cfcf',marginTop:'2rem',width:'70%'}} >
+      addDisplay ? <Grid sx={{marginLeft:{xs:'-2.8rem',lg:'.09rem'},width:{xs:'22.4rem !important',lg:'70% !important'}}} className="cart-page-order-summary" style={{border:'1px solid #d3cfcf',marginTop:'2rem',width:'70%'}} >
       <p style={{marginLeft:'2rem'}}>Order Summary</p>
     </Grid> :<OrderBox> {cartItems.map((cartItem)=><OrderSummary cartItem={cartItem}/>)} </OrderBox>
     }

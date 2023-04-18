@@ -100,3 +100,37 @@ textarea{
 .book-details{
     margin-bottom: 4rem;
 }
+
+@media  only screen and (max-width:600px) {
+    .add-to-bag{
+    }
+
+    .book-details-left-bottom{
+        width: 80%;
+        margin:2rem auto;
+    }
+
+    .book-details-right h1{
+        width: max-content;
+    }
+
+   .book-details{
+    margin-bottom: 20rem;
+   }
+
+   .feed-back-box{
+    width: 20rem;
+    margin-left: -3rem;
+   }
+
+    
+    
+}
+
+.feed-back-box{
+    margin-top: 1rem;
+}
+
+.book-details-middle{
+    margin-bottom: 5rem;
+}

@@ -2,6 +2,7 @@ import { Grid } from '@mui/material'
 import React from 'react'
 import { useNavigate } from 'react-router-dom'
 import { placeOrderService } from '../../Services/CartService'
+import './Order.css'
 
 const OrderBox = ({children}) => {
 
@@ -46,7 +47,7 @@ const OrderBox = ({children}) => {
     
   return (
 
-    <Grid style={{border:'1px solid #d3cfcf',marginTop:'2rem',width:'70%',padding:'1rem'}}>
+    <Grid className='order-box' style={{border:'1px solid #d3cfcf',marginTop:'2rem',width:'70%',padding:'1rem'}}>
         <Grid className="order-summary-top">
             <h3>Order Summary</h3>
         </Grid>

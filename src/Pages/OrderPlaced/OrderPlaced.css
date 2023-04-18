@@ -8,3 +8,18 @@ table{
 
 }
 
+@media only screen and (max-width:600px){
+    .order-placed-middle h1{
+        font-size: 24px;
+        width: max-content;
+    }
+
+    .order-placed-middle  {
+        width: 20rem !important;
+    }
+
+    .order-placed-middle table {
+        width: 20rem;
+        font-size: 12px;
+    }
+}

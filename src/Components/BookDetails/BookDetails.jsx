@@ -7,6 +7,7 @@ import Rating from '@mui/material/Rating';
 import Typography from '@mui/material/Typography';
 import AddToCartCounter from '../AddToCartCounter/AddToCartCounter';
 import { addCartItemService, getCartItemService } from '../../Services/CartService';
+import { Grid } from '@mui/material';
 
 
 const BookDetails = ({book,click}) => {
@@ -52,60 +53,62 @@ const BookDetails = ({book,click}) => {
     },[])
     // setAddToBag={setAddToBag} cartId={cartId} itemNo={numOfItem} book={book}
   return (
-    <div className='book-details'>
-        <div className="book-details-top">
+    <Grid className='book-details'>
+        <Grid className="book-details-top">
             <p onClick={()=>click(false)} style={{color:'grey',cursor:'pointer'}}>Home /</p> <span style={{marginLeft:'1rem'}}> Book({book.bookName})</span>
-        </div>
-        <div className="book-details-middle">
-            <div className="book-details-left">
-                <div className="img-container">
-                <div className="book-details-left-top">
+        </Grid>
+        <Grid className="book-details-middle" sx={{display:{xs:'flex'},flexDirection:{xs:'column',lg:'row'}}}>
+            <Grid className="book-details-left">
+                <Grid className="img-container">
+                <Grid className="book-details-left-top" sx={{width:{xs:'80%',lg:'100%'},display:{xs:'flex'},alignItems:{xs:'center'},justifyContent:{xs:'center'},margin:{xs:'auto'}}}>
                     <img src={bookImg} alt="" />
-                </div>
-                <div className="book-details-left-bottom"> 
+                </Grid>
+                <Grid className="book-details-left-bottom"> 
                 {
                     addToBag ? 
                 <button onClick={()=>{setAddToBag(false);addToCart(book._id);}} className='add-to-bag'>ADD TO BAG</button> : <AddToCartCounter setAddToBag={setAddToBag} getCartItem={getCartItem} bookObj={bookObj}/>
 
                 }
                 <button className='wish-list'>{<FavoriteIcon fontSize='small' style={{marginRight:'10px'}}/>}WISHLIST</button>
-                 </div>
-                </div>
+                 </Grid>
+                </Grid>
                 
 
             
-            </div>
-            <div className="book-details-right" style={{marginLeft:'5rem'}}>
+            </Grid>
+            <Grid sx={{fontSize:{xs:'small'}}} className="book-details-right" style={{marginLeft:'5rem'}}>
             <h1 style={{marginTop:'-9px',fontWeight:'500'}}>{book.bookName}</h1>
             <p style={{marginTop:'-1rem',fontSize:'18px',color:'grey'}}>{book.author}</p>
-            <div className="rate">
-                <div className="rate-box">
+            <Grid className="rate">
+                <Grid className="rate-box">
                     <span style={{fontSize:'13px',marginRight:'5px',color:'white'}}>4.5</span>
                     <StarIcon fontSize='10px' style={{color:'white'}}/>
-                </div>
+                </Grid>
                 <p style={{fontSize:'13px',marginLeft:'10px',color:'grey'}}>(20)</p>
-            </div>
-            <div className="book-box-price">
+            </Grid>
+            <Grid className="book-box-price">
                 <h1 style={{marginRight:'10px',fontWeight:'400'}}>Rs. {book.discountPrice}</h1>
                 <strike style={{fontSize:'17px',textDecoration:'strike',color:'grey'}}>Rs. {book.price}</strike>
-            </div>
-            <div className='line'></div>
+            </Grid>
+            <Grid className='line'></Grid>
             <ul style={{marginLeft:'-22px',color:'grey'}}>
                 <li>Book Detail</li>
             </ul>
             <p style={{fontSize:'14px',marginLeft:'3px'}}>{book.description}</p>
-            <div className='line' style={{marginTop:'3rem'}}></div>
+            <Grid sx={{display:'flex',flexDirection:'column'}} className='line' style={{marginTop:'3rem'}}>
+                
+                <Grid className="feed-back-box" sx={{display:'flex',flexDirection:'column'}}>
                 <h3 style={{fontWeight:'400'}}>Customer Feedback</h3>
-                <div className="feed-back-box">
+
                 <Typography component="legend">Overall rating</Typography>
       <Rating name="read-only" value={4} readOnly />
       <textarea placeholder='write your review' name="" id="" cols="45" rows="5"></textarea>
       <button className='submit-button'>Submit</button>
-                </div>
-
-            </div>
-        </div>
-    </div>
+                </Grid>
+                </Grid>
+            </Grid>
+        </Grid>
+    </Grid>
   )
 }
 
